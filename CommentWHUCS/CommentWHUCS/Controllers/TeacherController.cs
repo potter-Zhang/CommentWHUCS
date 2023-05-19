@@ -1,17 +1,26 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using CommentWHUCS.Models;
+using CommentWHUCS.SearchHelper;
 
 
 namespace CommentWHUCS.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/teacher")]
     [ApiController]
     public class TeacherController : ControllerBase
     {
+        Searcher searcher;
+        Inserter inserter;
+        public TeacherController(Searcher searcher, Inserter inserter)
+        {
+            this.searcher = searcher;
+            this.inserter = inserter;
+        }
         // GET: api/<ValuesController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public List<Teacher> GetTeachers(string name)
         {
-            return new string[] { "value1", "value2" };
+            return Searcher.SearchTeachers(name, "");
         }
 
         // GET api/<ValuesController>/5
