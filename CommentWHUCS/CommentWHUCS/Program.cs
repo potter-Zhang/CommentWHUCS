@@ -1,9 +1,6 @@
-
-using CommentWHUCS.Models;
 using CommentWHUCS.Helper;
 using Microsoft.EntityFrameworkCore;
-
-
+using CommentWHUCS.Models.DAO;
 
 var builder = WebApplication.CreateBuilder(args);
 
