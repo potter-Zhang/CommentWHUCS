@@ -21,6 +21,24 @@ namespace CommentWHUCS.Models.Services
             this.dbContext = dbContext;
         }
 
+        //查询该类型竞赛的竞赛得奖信息
+        public List<CompAwardInfo> SearchCompAwardInfo(string compId)
+        {
+            if (dbContext.CompAwardInfos == null)
+                throw new Exception("CompAwardInfo is null");
+            return dbContext.CompAwardInfos.Where(o => o.CompId == compId).ToList();
+        }
+
+        //添加得奖信息
+        public void AddCompAwardInfo(CompAwardInfo compAwardInfo)
+        {
+
+            if (dbContext.CompAwardInfos == null)
+                throw new Exception("CompAwardInfo is null");
+            dbContext.CompAwardInfos.Add(compAwardInfo);
+            dbContext.SaveChanges();
+        }
+
         //查询该类型竞赛的竞赛招募信息（团队信息）
         public List<CompGroupNew> SearchCompGroup(string CompTypeId)
         {
