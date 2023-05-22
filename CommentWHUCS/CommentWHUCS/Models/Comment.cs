@@ -5,6 +5,7 @@ namespace CommentWHUCS.Models
 {
     public class Comment
     {
+        [Key]
         public string CommentId { get; set; }
         public string TeacherId { get; set; }
         public string UserId { get; set; }

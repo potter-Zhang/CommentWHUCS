@@ -1,14 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Org.BouncyCastle.Asn1.X509;
 
-namespace CommentWHUCS.Models
+namespace CommentWHUCS.Models.DAO
 {
-    public class CWCDbContext:DbContext
+    public class CWCDbContext : DbContext
     {
         public CWCDbContext(DbContextOptions<CWCDbContext> options)
             : base(options)
         {
-            this.Database.EnsureCreated(); //自动建库建表
+            Database.EnsureCreated(); //自动建库建表
         }
 
         public DbSet<Teacher> Teachers { get; set; }

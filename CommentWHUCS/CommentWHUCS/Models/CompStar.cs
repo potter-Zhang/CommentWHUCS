@@ -1,7 +1,10 @@
-﻿namespace CommentWHUCS.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace CommentWHUCS.Models
 {
     public class CompStar
     {
+        [Key]
         public string Id { get; set; }
         public string TeacherId { get; set; }
         public string UserId { get; set; }
