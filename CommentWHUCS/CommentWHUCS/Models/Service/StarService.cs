@@ -14,6 +14,8 @@ namespace CommentWHUCS.Models.Service
 
         public TeachStar SearchTeachStar(string teacherId)
         {
+            if (_ctx.TeachStars == null)
+                throw new Exception("teachstar is null");
             var group = _ctx.TeachStars
                 .Where(o => o.TeacherId == teacherId)
                 .GroupBy(o => o.TeacherId)
@@ -37,6 +39,8 @@ namespace CommentWHUCS.Models.Service
 
         public CompStar SearchCompStar(string teacherId)
         {
+            if (_ctx.CompStars == null)
+                throw new Exception("compstar is null");
             var group = _ctx.CompStars
                 .Where(o => o.TeacherId == teacherId)
                 .GroupBy(o => o.TeacherId)
@@ -60,6 +64,8 @@ namespace CommentWHUCS.Models.Service
 
         public dynamic SearchRSRCHStar(string teacherId)
         {
+            if (_ctx.RSRCHStars == null)
+                throw new Exception("RSRCHStar is null");
             var group = _ctx.RSRCHStars
                 .Where(o => o.TeacherId == teacherId)
                 .GroupBy(o => o.TeacherId)
@@ -83,6 +89,8 @@ namespace CommentWHUCS.Models.Service
 
         public void AddTeachStar(TeachStar ts)
         {
+            if (_ctx.TeachStars == null)
+                throw new Exception("teachstar is null");
             ts.Id = Guid.NewGuid().ToString();
             ts.TotalStar = (ts.ScoreStar + ts.TeachingStar + ts.TaskStar + ts.CommStar) / 4.0;
             _ctx.TeachStars.Add(ts);
@@ -91,6 +99,8 @@ namespace CommentWHUCS.Models.Service
 
         public void AddCompStar(CompStar cs)
         {
+            if (_ctx.CompStars == null)
+                throw new Exception("compstar is null");
             cs.Id = Guid.NewGuid().ToString();
             cs.TotalStar = (cs.ResStar + cs.ExpStar + cs.FundsStar + cs.TeachingStar) / 4.0;
             _ctx.CompStars.Add(cs);
@@ -99,6 +109,8 @@ namespace CommentWHUCS.Models.Service
 
         public void AddRSRCHStar(RSRCHStar rs)
         {
+            if (_ctx.RSRCHStars == null)
+                throw new Exception("RSRCHStar is null");
             rs.Id = Guid.NewGuid().ToString();
             rs.TotalStar = (rs.ACStar + rs.CharStar + rs.FundsStar + rs.ResStar) / 4.0;
             _ctx.RSRCHStars.Add(rs);

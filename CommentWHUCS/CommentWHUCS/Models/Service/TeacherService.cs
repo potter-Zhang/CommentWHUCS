@@ -14,13 +14,13 @@ namespace CommentWHUCS.Models.Service
         }
 
         
-        public async Task<List<Teacher>> Search(string name = "", string title = "")
+        public List<Teacher> Search(string name = "", string title = "")
         {
             if (_ctx.Teachers == null)
             {
                 throw new Exception("context.teachers is null");
             }
-            return await _ctx.Teachers.Where(o => o.Name.Contains(name) && o.Title.Contains(title)).ToListAsync();
+            return _ctx.Teachers.Where(o => o.Name.Contains(name) && o.Title.Contains(title)).ToList();
         }
 
     }

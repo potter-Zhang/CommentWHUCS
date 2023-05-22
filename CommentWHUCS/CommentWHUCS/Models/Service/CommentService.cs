@@ -24,6 +24,8 @@ namespace CommentWHUCS.Models.Service
         // 时间顺序返回评论
         public List<Comment> SearchCommentsOrderByTime(string teacherId, string commentType) 
         {
+            if (_ctx.Comments == null)
+                throw new Exception("comments is null");
             return _ctx.Comments.Where(o => o.TeacherId == teacherId && o.CommentType == commentType)
                                 .OrderByDescending(o => o.Time)
                                 .ToList();
@@ -32,6 +34,8 @@ namespace CommentWHUCS.Models.Service
         // 点赞数量返回评论
         public List<Comment> SearchCommentsOrderByLikes(string teacherId, string commentType)
         {
+            if (_ctx.Comments == null)
+                throw new Exception("comments is null");
             return _ctx.Comments.Where(o => o.TeacherId == teacherId && o.CommentType == commentType)
                                 .OrderByDescending(o => o.LikeNum)
                                 .ToList();
@@ -40,6 +44,8 @@ namespace CommentWHUCS.Models.Service
         // 需要指定comment的userid，teacherid，commentType, content
         public Comment AddComment(Comment comment)
         {
+            if (_ctx.Comments == null)
+                throw new Exception("comments is null");
             comment.CommentId = Guid.NewGuid().ToString();
             comment.Time = DateTime.Now;
             comment.LikeNum = 0;
@@ -51,6 +57,8 @@ namespace CommentWHUCS.Models.Service
         // 增加一个like
         public Comment AddLike(Comment comment)
         {
+            if (_ctx.Comments == null)
+                throw new Exception("comments is null");
             _ctx.Comments.Attach(comment);
             comment.LikeNum++;
             _ctx.SaveChanges();
@@ -58,7 +66,9 @@ namespace CommentWHUCS.Models.Service
         }
 
         public Comment SearchByUserId(string userId) 
-        { 
+        {
+            if (_ctx.Comments == null)
+                throw new Exception("comments is null");
             var comments = _ctx.Comments.Where(o => o.UserId == userId);
             if (comments.Count() == 0)
                 throw new Exception("user's comment not found");

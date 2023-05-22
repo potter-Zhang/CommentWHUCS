@@ -26,11 +26,11 @@ namespace CommentWHUCS.Controllers
 
         // GET: api/TeachersSearch
         [HttpGet]
-        public async Task<ActionResult<List<Teacher>>> GetTeachers(string name = "", string title = "")
+        public ActionResult<List<Teacher>> GetTeachers(string name = "", string title = "")
         {
             try
             {
-                return await teacherService.Search(name, title);
+                return teacherService.Search(name, title);
             }
             catch (Exception ex)
             {
