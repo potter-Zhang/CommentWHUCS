@@ -8,32 +8,32 @@ This project aims to create an interactive information platform for the School o
 
 
 
-![](C:\Users\Harry\Desktop\Github\img\login.png)
+![](img/login.png)
 
 <center>figure 1: login</center>
 
 
 
-![](C:\Users\Harry\Desktop\Github\img\navigator.png)
+![](img/navigator.png)
 
 <center>figure 2: navigator</center>
 
-![](C:\Users\Harry\Desktop\Github\img\teacher.png)
+![](img/teacher.png)
 
 <center>figure 3: teacher information</center>
 
-![](C:\Users\Harry\Desktop\Github\img\teacherinfo.png)
+![](img/teacherinfo.png)
 
 <center>figure 4: detail information</center>
 
-![](C:\Users\Harry\Desktop\Github\img\teachereval.png)
+![](img/teachereval.png)
 
 <center>figure 5: comments</center>
 
-![](C:\Users\Harry\Desktop\Github\img\competition.png)
+![](img/competition.png)
 
 <center>figure 6: competitions</center>
 
-![](C:\Users\Harry\Desktop\Github\img\research.png)
+![](img/research.png)
 
 <center>figure 7: research information</center>
